@@ -1,6 +1,7 @@
 package com.pranati.kaiburr.control;
 
 
+import com.pranati.kaiburr.model.ExectionTimes;
 import com.pranati.kaiburr.model.Task;
 import com.pranati.kaiburr.service.UserService;
 import org.bson.Document;
@@ -18,7 +19,7 @@ public class UserController {
     }
 
     @GetMapping("/Tasks")
-    public List<Document> getTasks(@RequestParam(required = false) String id) {
+    public List<Task> getTasks(@RequestParam(required = false) String id) {
         System.out.println("Inside getTasks");
         return userService.getTasks(id);
     }
@@ -31,5 +32,9 @@ public class UserController {
     public String deleteTask(@RequestParam String id){
 
         return userService.deleteTask(id);
+    }
+    @PutMapping("/Tasks")
+    public String ExecuteCommand(@RequestParam String id){
+        return userService.ExecuteCommand(id, userService.createExecutionTime());
     }
 }

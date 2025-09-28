@@ -1,10 +1,13 @@
 package com.pranati.kaiburr.model;
 
+import java.util.List;
+
 public class Task {
     private String id;
     private String name;
     private String owner;
     private String command;
+    private List<ExectionTimes> taskExecutions;
 
     public String getId() {
         return id;
@@ -46,6 +49,14 @@ public class Task {
 
     public void setCommand(String command) {
         this.command = command;
+    }
+
+    public List<ExectionTimes> getTaskExecutions() {
+        return taskExecutions;
+    }
+
+    public void setTaskExecutions(List<ExectionTimes> taskExecutions) {
+        this.taskExecutions = taskExecutions;
     }
 }
 
